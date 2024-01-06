@@ -15,5 +15,6 @@ namespace DangNgocTuong140.Data
         }
 
         public DbSet<DangNgocTuong140.Models.HocSinh> HocSinh { get; set; } = default!;
+        public DbSet<DangNgocTuong140.Models.LopHoc> LopHoc { get; set; } = default!;
     }
 }
