@@ -34,7 +34,7 @@ namespace DangNgocTuong140.Controllers
             }
 
             var hocSinh = await _context.HocSinh
-                .FirstOrDefaultAsync(m => m.MaSinhVien == id);
+                .FirstOrDefaultAsync(m => m.MaHocSinh == id);
             if (hocSinh == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace DangNgocTuong140.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaSinhVien,SoDienThoai,Diem")] HocSinh hocSinh)
+        public async Task<IActionResult> Create([Bind("MaHocSinh,SoDienThoai,Diem")] HocSinh hocSinh)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace DangNgocTuong140.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaSinhVien,SoDienThoai,Diem")] HocSinh hocSinh)
+        public async Task<IActionResult> Edit(string id, [Bind("MaHocSinh,SoDienThoai,Diem")] HocSinh hocSinh)
         {
-            if (id != hocSinh.MaSinhVien)
+            if (id != hocSinh.MaHocSinh)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace DangNgocTuong140.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HocSinhExists(hocSinh.MaSinhVien))
+                    if (!HocSinhExists(hocSinh.MaHocSinh))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace DangNgocTuong140.Controllers
             }
 
             var hocSinh = await _context.HocSinh
-                .FirstOrDefaultAsync(m => m.MaSinhVien == id);
+                .FirstOrDefaultAsync(m => m.MaHocSinh == id);
             if (hocSinh == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace DangNgocTuong140.Controllers
 
         private bool HocSinhExists(string id)
         {
-            return _context.HocSinh.Any(e => e.MaSinhVien == id);
+            return _context.HocSinh.Any(e => e.MaHocSinh == id);
         }
     }
 }
